@@ -2,8 +2,6 @@ package com.questdot.captureandselectgalleryexample;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.Matrix;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -16,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int CAMERA_REQUEST = 1;
     private static final int RESULT_LOAD_IMAGE = 2;
     private ImageView imageView;
-    Button photoButton;
+    Button btnCapture;
     Button btnGallery;
 
     @Override
@@ -24,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         imageView = (ImageView)findViewById(R.id.image);
-        photoButton = (Button) findViewById(R.id.btnCapture);
-        photoButton.setOnClickListener(new View.OnClickListener() {
+        btnCapture = (Button) findViewById(R.id.btnCapture);
+        btnCapture.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -96,10 +94,5 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public static Bitmap rotateImage(Bitmap source, float angle) {
-        Matrix matrix = new Matrix();
-        matrix.postRotate(angle);
-        return Bitmap.createBitmap(source, 0, 0, source.getWidth(), source.getHeight(),
-                matrix, true);
-    }
+    
 }
